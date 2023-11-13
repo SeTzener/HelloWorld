@@ -1,5 +1,6 @@
 package com.example.helloworld
 
+import androidx.activity.viewModels
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -14,6 +15,8 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -105,5 +108,24 @@ fun LazyColumnExample2() {
                 )
             }
         }
+    }
+}
+
+
+@Composable
+fun roomDatabaseExample(mainViewModel: MainViewModel){
+    val result by mainViewModel.readAllData.collectAsState(initial = emptyList())
+    if (result.isNotEmpty()) {
+        for (person in result) {
+            Text(
+                text = person.name,
+                fontSize = MaterialTheme.typography.bodyMedium.fontSize
+            )
+        }
+    } else {
+        Text(
+            text = "Empty Database",
+            fontSize = MaterialTheme.typography.bodyMedium.fontSize
+        )
     }
 }

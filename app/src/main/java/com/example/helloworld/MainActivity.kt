@@ -94,12 +94,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             HelloWorldTheme {
                 // A surface container using the 'background' color from the theme
-//                val context = applicationContext
-//                val database = provideDatabase(context)
-//                val dao = provideDao(database)
-//                val personDbRepository = PersonDbRepository(dao)
-//                val mainViewModel = MainViewModel(personDbRepository)
-                val result by mainViewModel.readAllData.collectAsState(initial = emptyList())
+
                 Column(
                     modifier = Modifier
                         .fillMaxSize()
@@ -120,19 +115,7 @@ class MainActivity : ComponentActivity() {
 //                    GradientButton(text = "Button", textColor = Color.White, gradient = Brush.horizontalGradient(colors = listOf(color1, color2))) {}
 //                    LazyColumnExample()
 //                    LazyColumnExample2()
-                    if (result.isNotEmpty()) {
-                        for (person in result) {
-                            Text(
-                                text = person.name,
-                                fontSize = MaterialTheme.typography.bodyMedium.fontSize
-                            )
-                        }
-                    } else {
-                        Text(
-                            text = "Empty Database",
-                            fontSize = MaterialTheme.typography.bodyMedium.fontSize
-                        )
-                    }
+                    roomDatabaseExample(mainViewModel) // To see this uncomment the mainViewModel variable on top
                 }
             }
         }
