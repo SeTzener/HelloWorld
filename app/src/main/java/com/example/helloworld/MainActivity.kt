@@ -82,6 +82,7 @@ import com.example.helloworld.repository.PersonRepository
 import com.example.helloworld.ui.theme.HelloWorldTheme
 import com.example.helloworld.ui.theme.color1
 import com.example.helloworld.ui.theme.color2
+import com.google.android.material.progressindicator.CircularProgressIndicator
 import dagger.Provides
 import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Singleton
@@ -118,7 +119,10 @@ class MainActivity : ComponentActivity() {
 //                    GradientButton(text = "Button", textColor = Color.White, gradient = Brush.horizontalGradient(colors = listOf(color1, color2))) {}
 //                    LazyColumnExample()
 //                    LazyColumnExample2()
-                    roomDatabaseExample(mainViewModel) // To see this uncomment the mainViewModel variable on top
+//                    roomDatabaseExample(mainViewModel) // To see this uncomment the mainViewModel variable on top
+                    var value by remember { mutableStateOf(0f) }
+
+                    CircularProgressIndicator(modifier = Modifier.fillMaxSize(), progress = { value })
                 }
             }
         }

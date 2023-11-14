@@ -1,5 +1,6 @@
 package com.example.helloworld
 
+import android.content.res.Resources.Theme
 import android.util.Log
 import androidx.activity.viewModels
 import androidx.compose.foundation.ExperimentalFoundationApi
@@ -65,6 +66,7 @@ import coil.compose.rememberAsyncImagePainter
 import coil.request.ImageRequest
 import coil.transform.CircleCropTransformation
 import com.example.helloworld.repository.PersonRepository
+import com.example.helloworld.ui.theme.HelloWorldTheme
 
 const val LOREM_IPSUM = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, " +
         "sed do eiusmod tempor incididunt ut labore et dolore magna " +
@@ -421,6 +423,7 @@ fun roomDatabaseExample(mainViewModel: MainViewModel){
         for (person in result) {
             Text(
                 text = person.name,
+                color = Color.Green,
                 fontSize = MaterialTheme.typography.bodyMedium.fontSize
             )
         }
