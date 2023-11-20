@@ -37,6 +37,7 @@ import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
@@ -433,4 +434,27 @@ fun roomDatabaseExample(mainViewModel: MainViewModel){
             fontSize = MaterialTheme.typography.bodyMedium.fontSize
         )
     }
+}
+
+@Composable
+fun CircularIndicatorExample(){
+    var value by remember { mutableIntStateOf(0) }
+
+    CircularIndicator(
+        indicatorValue = value
+    )
+
+    TextField(
+        value = value.toString(),
+        onValueChange = {
+            value = if (it.isNotEmpty()) {
+                it.toInt()
+            } else {
+                0
+            }
+        },
+        keyboardOptions = KeyboardOptions(
+            keyboardType = KeyboardType.Number
+        )
+    )
 }

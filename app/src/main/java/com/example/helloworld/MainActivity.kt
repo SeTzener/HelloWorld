@@ -121,26 +121,8 @@ class MainActivity : ComponentActivity() {
 //                    LazyColumnExample()
 //                    LazyColumnExample2()
 //                    roomDatabaseExample(mainViewModel) // To see this uncomment the mainViewModel variable on top
+                    CircularIndicatorExample()
 
-                    var value by remember { mutableStateOf(0) }
-
-                    CircularIndicator(
-                        indicatorValue = value
-                    )
-
-                    TextField(
-                        value = value.toString(),
-                        onValueChange = {
-                            value = if (it.isNotEmpty()) {
-                                it.toInt()
-                            } else {
-                                0
-                            }
-                        },
-                        keyboardOptions = KeyboardOptions(
-                            keyboardType = KeyboardType.Number
-                        )
-                    )
                 }
             }
         }
