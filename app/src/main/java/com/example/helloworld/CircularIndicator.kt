@@ -8,7 +8,10 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.geometry.Offset
@@ -32,11 +35,19 @@ fun CircularIndicator(
     foregroundIndicatorColor: Color = Color.Blue,
     foregroundIndicatorStroke: Float = 100f
 ) {
+    var allowedIndicatorValue by remember {
+        mutableIntStateOf(maxIndicatorValue)
+    }
+    allowedIndicatorValue = if (indicatorValue <= maxIndicatorValue) {
+        indicatorValue
+    } else {
+        maxIndicatorValue
+    }
     val animatedIndicatorValue = remember {
         Animatable(initialValue = 0f)
     }
-    LaunchedEffect(key1 = indicatorValue) {
-        animatedIndicatorValue.animateTo(indicatorValue.toFloat())
+    LaunchedEffect(key1 = allowedIndicatorValue) {
+        animatedIndicatorValue.animateTo(allowedIndicatorValue.toFloat())
     }
 
     val percentage = (animatedIndicatorValue.value / maxIndicatorValue) * 100
