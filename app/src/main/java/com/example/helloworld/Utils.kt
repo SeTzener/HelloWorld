@@ -1,8 +1,6 @@
 package com.example.helloworld
 
-import android.content.res.Resources.Theme
 import android.util.Log
-import androidx.activity.viewModels
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -67,7 +65,6 @@ import coil.compose.rememberAsyncImagePainter
 import coil.request.ImageRequest
 import coil.transform.CircleCropTransformation
 import com.example.helloworld.repository.PersonRepository
-import com.example.helloworld.ui.theme.HelloWorldTheme
 
 const val LOREM_IPSUM = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, " +
         "sed do eiusmod tempor incididunt ut labore et dolore magna " +
