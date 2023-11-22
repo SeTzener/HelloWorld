@@ -25,7 +25,6 @@ import com.example.helloworld.ui.theme.color1
 import com.example.helloworld.ui.theme.color2
 
 class MainActivity : ComponentActivity() {
-
     private val mainViewModel: MainViewModel by viewModels()
 
     @OptIn(ExperimentalMaterial3Api::class)
@@ -58,7 +57,8 @@ class MainActivity : ComponentActivity() {
 //                    LazyColumnExample2()
 //                    roomDatabaseExample(mainViewModel) // To see this uncomment the mainViewModel variable on top
 //                    CircularIndicatorExample()
-                    NavigationControllerExample()
+//                    NavigationControllerExample()
+                    SendArgumentsBetweenScreenExample()
                 }
             }
         }
