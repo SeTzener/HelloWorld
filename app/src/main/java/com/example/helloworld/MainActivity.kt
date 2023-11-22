@@ -19,13 +19,13 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 import com.example.helloworld.ui.theme.HelloWorldTheme
 import com.example.helloworld.ui.theme.color1
 import com.example.helloworld.ui.theme.color2
 
 class MainActivity : ComponentActivity() {
 
-    lateinit var navController: NavHostController
     private val mainViewModel: MainViewModel by viewModels()
 
     @OptIn(ExperimentalMaterial3Api::class)
@@ -58,7 +58,7 @@ class MainActivity : ComponentActivity() {
 //                    LazyColumnExample2()
 //                    roomDatabaseExample(mainViewModel) // To see this uncomment the mainViewModel variable on top
 //                    CircularIndicatorExample()
-                    navController = remember { mutableStateOf}
+                    NavigationControllerExample()
                 }
             }
         }

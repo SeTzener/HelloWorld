@@ -60,6 +60,8 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 import coil.compose.AsyncImagePainter
 import coil.compose.rememberAsyncImagePainter
 import coil.request.ImageRequest
@@ -454,4 +456,11 @@ fun CircularIndicatorExample(){
             keyboardType = KeyboardType.Number
         )
     )
+}
+
+lateinit var navController: NavHostController
+@Composable
+fun NavigationControllerExample(){
+    navController = rememberNavController()
+    SetupNavGraph(navController = navController)
 }
