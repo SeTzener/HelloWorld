@@ -1,4 +1,4 @@
-package com.example.helloworld
+package com.example.helloworld.screen.argumets.example
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
@@ -20,7 +20,7 @@ fun FirstScreen(navController: NavController) {
         Text (
             modifier = Modifier.clickable {
                 navController.navigate(
-                    route = Screen2.Second.passNameAndId(
+                    route = Screen.Second.passNameAndId(
                         id = 11,
                         name = "Gavizi"
                     )

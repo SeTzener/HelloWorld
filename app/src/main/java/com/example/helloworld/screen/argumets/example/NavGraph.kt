@@ -1,4 +1,4 @@
-package com.example.helloworld
+package com.example.helloworld.screen.argumets.example
 
 import android.util.Log
 import androidx.compose.runtime.Composable
@@ -7,43 +7,23 @@ import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
+import com.example.helloworld.navController2
 
 @Composable
 fun SetupNavGraph(
     navController: NavHostController
 ) {
     NavHost(
-        navController = navController,
-        startDestination = Screen.Home.route
-    ) {
-        composable(
-            route = Screen.Home.route
-        ) {
-            HomeScreen(navController)
-        }
-        composable(
-            route = Screen.Detail.route
-        ) {
-            DetailScreen(navController)
-        }
-    }
-}
-
-@Composable
-fun SetupSecondNavGraph(
-    navController2: NavHostController
-) {
-    NavHost(
         navController = navController2,
-        startDestination =  Screen2.First.route,
+        startDestination =  Screen.First.route,
     ) {
         composable(
-            route = Screen2.First.route
+            route = Screen.First.route
         ) {
             FirstScreen(navController = navController2)
         }
         composable(
-            route = Screen2.Second.route,
+            route = Screen.Second.route,
             arguments = listOf(
                 navArgument(name = SECOND_ARGUMENT_KEY) {
                     type = NavType.IntType

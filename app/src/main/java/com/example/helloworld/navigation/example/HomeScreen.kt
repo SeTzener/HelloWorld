@@ -1,4 +1,4 @@
-package com.example.helloworld
+package com.example.helloworld.navigation.example
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box

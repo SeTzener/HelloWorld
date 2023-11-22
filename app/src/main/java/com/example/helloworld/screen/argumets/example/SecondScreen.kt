@@ -1,4 +1,4 @@
-package com.example.helloworld
+package com.example.helloworld.screen.argumets.example
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
@@ -11,6 +11,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.navigation.NavController
+import com.example.helloworld.screen.argumets.example.Screen
 
 @Composable
 fun SecondScreen(navController: NavController) {
@@ -20,7 +21,7 @@ fun SecondScreen(navController: NavController) {
     ) {
         Text (
             modifier = Modifier.clickable {
-                navController.navigate(route = Screen2.First.route)
+                navController.navigate(route = Screen.First.route)
             },
             text = "Second",
             color = Color.Red,

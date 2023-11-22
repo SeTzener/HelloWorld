@@ -462,12 +462,12 @@ lateinit var navController: NavHostController
 @Composable
 fun NavigationControllerExample(){
     navController = rememberNavController()
-    SetupNavGraph(navController = navController)
+    com.example.helloworld.navigation.example.SetupNavGraph(navController = navController)
 }
 
 lateinit var navController2: NavHostController
 @Composable
 fun SendArgumentsBetweenScreenExample() {
     navController2 = rememberNavController()
-    SetupSecondNavGraph(navController2 = navController2)
+    com.example.helloworld.screen.argumets.example.SetupNavGraph(navController = navController2)
 }
