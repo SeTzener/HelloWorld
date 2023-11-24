@@ -60,7 +60,9 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import androidx.navigation.NavHostController
+import androidx.navigation.Navigation
 import androidx.navigation.compose.rememberNavController
 import coil.compose.AsyncImagePainter
 import coil.compose.rememberAsyncImagePainter
@@ -470,4 +472,11 @@ lateinit var navController2: NavHostController
 fun SendArgumentsBetweenScreenExample() {
     navController2 = rememberNavController()
     com.example.helloworld.screen.argumets.example.SetupNavGraph(navController = navController2)
+}
+
+lateinit var navController3: NavHostController
+@Composable
+fun NestedNavigationExample() {
+    navController3 = rememberNavController()
+    com.example.helloworld.nested.navigation.example.setupNavGraph(navController = navController3)
 }

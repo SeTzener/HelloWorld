@@ -26,7 +26,6 @@ import com.example.helloworld.ui.theme.color2
 
 class MainActivity : ComponentActivity() {
     private val mainViewModel: MainViewModel by viewModels()
-
     @OptIn(ExperimentalMaterial3Api::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -58,7 +57,8 @@ class MainActivity : ComponentActivity() {
 //                    roomDatabaseExample(mainViewModel) // To see this uncomment the mainViewModel variable on top
 //                    CircularIndicatorExample()
 //                    NavigationControllerExample()
-                    SendArgumentsBetweenScreenExample()
+//                    SendArgumentsBetweenScreenExample()
+                    NestedNavigationExample()
                 }
             }
         }
