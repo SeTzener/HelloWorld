@@ -60,14 +60,13 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.navigation.NavController
 import androidx.navigation.NavHostController
-import androidx.navigation.Navigation
 import androidx.navigation.compose.rememberNavController
 import coil.compose.AsyncImagePainter
 import coil.compose.rememberAsyncImagePainter
 import coil.request.ImageRequest
 import coil.transform.CircleCropTransformation
+import com.example.helloworld.nested.navigation.example.nav_graph.setupNavGraph
 import com.example.helloworld.repository.PersonRepository
 
 const val LOREM_IPSUM = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, " +
@@ -478,5 +477,5 @@ lateinit var navController3: NavHostController
 @Composable
 fun NestedNavigationExample() {
     navController3 = rememberNavController()
-    com.example.helloworld.nested.navigation.example.setupNavGraph(navController = navController3)
+    setupNavGraph(navController = navController3)
 }

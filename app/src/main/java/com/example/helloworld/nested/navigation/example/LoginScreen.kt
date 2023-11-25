@@ -7,8 +7,8 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.material3.Text
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -19,32 +19,29 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 
 @Composable
-fun HomeScreen(navController: NavController) {
-    Column(
+fun LoginScreen(navController: NavController){
+    Column (
         modifier = Modifier.fillMaxSize(),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center
-    ) {
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ){
         Text(
             modifier = Modifier.clickable {
-                navController.navigate(
-                    route = Screen.Detail.passNameAndId(
-                        id = 7,
-                        name = "Detail"
-                    )
-                )
+                navController.navigate(route = Screen.Signup.route)
             },
-            text = "Home",
+            text = "Login",
+            color = Color.Magenta,
             fontSize = MaterialTheme.typography.headlineLarge.fontSize,
-            color = MaterialTheme.colorScheme.primary,
             fontWeight = FontWeight.Bold
         )
         Text(
             modifier = Modifier.padding(top = 150.dp)
                 .clickable {
-                navController.navigate(AUTHENTICATION_ROUTE)
-            },
-            text = "Login / Sign up",
+                    navController.navigate(HOME_ROUTE) {
+                        popUpTo(HOME_ROUTE)
+                    }
+                },
+            text = "Go Back",
             color = Color.DarkGray,
             fontSize = MaterialTheme.typography.bodyLarge.fontSize,
             fontWeight = FontWeight.Bold
@@ -54,6 +51,6 @@ fun HomeScreen(navController: NavController) {
 
 @Composable
 @Preview(showBackground = true)
-fun HomeScreenPreview(){
-    HomeScreen(navController = rememberNavController())
+fun LoginScreenPreview(){
+    LoginScreen(rememberNavController())
 }

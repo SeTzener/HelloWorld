@@ -2,7 +2,6 @@ package com.example.helloworld.screen.argumets.example
 
 const val SECOND_ARGUMENT_KEY = "id"
 const val SECOND_ARGUMENT_KEY2 = "name"
-
 sealed class Screen(val route: String) {
     data object First : Screen(route = "first_screen")
     data object Second : Screen(route = "second_screen?id={$SECOND_ARGUMENT_KEY}&name={$SECOND_ARGUMENT_KEY2}") {
