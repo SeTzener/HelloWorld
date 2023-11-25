@@ -14,15 +14,9 @@ import androidx.compose.material3.MaterialTheme.colorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Brush
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavHostController
-import androidx.navigation.compose.rememberNavController
 import com.example.helloworld.ui.theme.HelloWorldTheme
-import com.example.helloworld.ui.theme.color1
-import com.example.helloworld.ui.theme.color2
 
 class MainActivity : ComponentActivity() {
     private val mainViewModel: MainViewModel by viewModels()
@@ -58,7 +52,8 @@ class MainActivity : ComponentActivity() {
 //                    CircularIndicatorExample()
 //                    NavigationControllerExample()
 //                    SendArgumentsBetweenScreenExample()
-                    NestedNavigationExample()
+//                    NestedNavigationPart1Example()
+                    NestedNavigationPart2Example()
                 }
             }
         }

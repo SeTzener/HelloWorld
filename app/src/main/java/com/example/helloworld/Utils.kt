@@ -475,7 +475,14 @@ fun SendArgumentsBetweenScreenExample() {
 
 lateinit var navController3: NavHostController
 @Composable
-fun NestedNavigationExample() {
+fun NestedNavigationPart1Example() {
     navController3 = rememberNavController()
-    setupNavGraph(navController = navController3)
+    com.example.helloworld.nested.navigation.example.nav_graph.setupNavGraph(navController = navController3)
+}
+
+lateinit var navController4: NavHostController
+@Composable
+fun NestedNavigationPart2Example() {
+    navController4 = rememberNavController()
+    com.example.helloworld.alternative.nested.navigation.example.nav_graph.setupNavGraph(navController = navController4)
 }
