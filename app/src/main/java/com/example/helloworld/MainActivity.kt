@@ -16,6 +16,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.helloworld.bottom.navigation.example.MainScreen
 import com.example.helloworld.ui.theme.HelloWorldTheme
 
 class MainActivity : ComponentActivity() {
@@ -53,7 +54,8 @@ class MainActivity : ComponentActivity() {
 //                    NavigationControllerExample()
 //                    SendArgumentsBetweenScreenExample()
 //                    NestedNavigationPart1Example()
-                    NestedNavigationPart2Example()
+//                    NestedNavigationPart2Example()
+                    MainScreen()
                 }
             }
         }
