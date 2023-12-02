@@ -17,10 +17,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.helloworld.bottom.navigation.example.BottomNavMainScreen
+import com.example.helloworld.searchbar.SearchBarMainScreen
+import com.example.helloworld.searchbar.SearchBarViewModel
 import com.example.helloworld.ui.theme.HelloWorldTheme
 
 class MainActivity : ComponentActivity() {
     private val mainViewModel: MainViewModel by viewModels()
+    private val searchBarViewModel: SearchBarViewModel by viewModels()
     @OptIn(ExperimentalMaterial3Api::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,7 +58,9 @@ class MainActivity : ComponentActivity() {
 //                    SendArgumentsBetweenScreenExample()
 //                    NestedNavigationPart1Example()
 //                    NestedNavigationPart2Example()
-                    BottomNavMainScreen()
+//                    BottomNavMainScreen()
+                    SearchBarMainScreen(searchBarViewModel)
+
                 }
             }
         }
