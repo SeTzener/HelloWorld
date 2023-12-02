@@ -19,6 +19,7 @@ import androidx.compose.ui.unit.dp
 import com.example.helloworld.bottom.navigation.example.BottomNavMainScreen
 import com.example.helloworld.searchbar.SearchBarMainScreen
 import com.example.helloworld.searchbar.SearchBarViewModel
+import com.example.helloworld.shimmering.effect.example.AnimatedShimmer
 import com.example.helloworld.ui.theme.HelloWorldTheme
 
 class MainActivity : ComponentActivity() {
@@ -59,8 +60,8 @@ class MainActivity : ComponentActivity() {
 //                    NestedNavigationPart1Example()
 //                    NestedNavigationPart2Example()
 //                    BottomNavMainScreen()
-                    SearchBarMainScreen(searchBarViewModel)
-
+//                    SearchBarMainScreen(searchBarViewModel)
+                    AnimatedShimmerExample()
                 }
             }
         }

@@ -68,6 +68,7 @@ import coil.request.ImageRequest
 import coil.transform.CircleCropTransformation
 import com.example.helloworld.nested.navigation.example.nav_graph.setupNavGraph
 import com.example.helloworld.repository.PersonRepository
+import com.example.helloworld.shimmering.effect.example.AnimatedShimmer
 
 const val LOREM_IPSUM = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, " +
         "sed do eiusmod tempor incididunt ut labore et dolore magna " +
@@ -485,4 +486,14 @@ lateinit var navController4: NavHostController
 fun NestedNavigationPart2Example() {
     navController4 = rememberNavController()
     com.example.helloworld.alternative.nested.navigation.example.nav_graph.setupNavGraph(navController = navController4)
+}
+
+@Composable
+fun AnimatedShimmerExample(){
+    Column {
+        repeat( times = 7
+        ){
+            AnimatedShimmer()
+        }
+    }
 }
