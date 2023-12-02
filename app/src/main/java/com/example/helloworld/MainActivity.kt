@@ -66,8 +66,7 @@ class MainActivity : ComponentActivity() {
 //                    SearchBarMainScreen(searchBarViewModel)
 //                    AnimatedShimmerExample()
 //                    CircularImageScreen()
-                        val navController = rememberNavController()
-                        com.example.helloworld.animated.splash.screen.example.setupNavGraph(navController = navController)
+                    AnimatedSplashScreenExample()
 
                 }
             }

@@ -497,3 +497,9 @@ fun AnimatedShimmerExample(){
         }
     }
 }
+
+@Composable
+fun AnimatedSplashScreenExample(){
+    val navController = rememberNavController()
+    com.example.helloworld.animated.splash.screen.example.setupNavGraph(navController = navController)
+}
