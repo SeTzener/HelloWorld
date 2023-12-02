@@ -17,6 +17,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.helloworld.bottom.navigation.example.BottomNavMainScreen
+import com.example.helloworld.circular.shape.image.example.CircularImageScreen
 import com.example.helloworld.searchbar.SearchBarMainScreen
 import com.example.helloworld.searchbar.SearchBarViewModel
 import com.example.helloworld.shimmering.effect.example.AnimatedShimmer
@@ -61,7 +62,8 @@ class MainActivity : ComponentActivity() {
 //                    NestedNavigationPart2Example()
 //                    BottomNavMainScreen()
 //                    SearchBarMainScreen(searchBarViewModel)
-                    AnimatedShimmerExample()
+//                    AnimatedShimmerExample()
+                    CircularImageScreen()
                 }
             }
         }
