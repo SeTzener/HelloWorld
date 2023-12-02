@@ -16,6 +16,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.compose.rememberNavController
+import com.example.helloworld.alternative.nested.navigation.example.nav_graph.setupNavGraph
 import com.example.helloworld.bottom.navigation.example.BottomNavMainScreen
 import com.example.helloworld.circular.shape.image.example.CircularImageScreen
 import com.example.helloworld.searchbar.SearchBarMainScreen
@@ -63,7 +65,10 @@ class MainActivity : ComponentActivity() {
 //                    BottomNavMainScreen()
 //                    SearchBarMainScreen(searchBarViewModel)
 //                    AnimatedShimmerExample()
-                    CircularImageScreen()
+//                    CircularImageScreen()
+                        val navController = rememberNavController()
+                        com.example.helloworld.animated.splash.screen.example.setupNavGraph(navController = navController)
+
                 }
             }
         }
