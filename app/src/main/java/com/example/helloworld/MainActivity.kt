@@ -3,17 +3,22 @@ package com.example.helloworld
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.compose.foundation.background
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme.colorScheme
+import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.SideEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.compose.rememberNavController
@@ -24,6 +29,7 @@ import com.example.helloworld.searchbar.SearchBarMainScreen
 import com.example.helloworld.searchbar.SearchBarViewModel
 import com.example.helloworld.shimmering.effect.example.AnimatedShimmer
 import com.example.helloworld.ui.theme.HelloWorldTheme
+import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
 class MainActivity : ComponentActivity() {
     private val mainViewModel: MainViewModel by viewModels()
@@ -66,7 +72,8 @@ class MainActivity : ComponentActivity() {
 //                    SearchBarMainScreen(searchBarViewModel)
 //                    AnimatedShimmerExample()
 //                    CircularImageScreen()
-                    AnimatedSplashScreenExample()
+//                    AnimatedSplashScreenExample()
+                    ChangeSystemBarColorsExample() //If nothing changes is because the same works is called in com.example.helloworld.ui.theme
 
                 }
             }

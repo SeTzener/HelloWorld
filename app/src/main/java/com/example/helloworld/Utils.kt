@@ -4,6 +4,7 @@ import android.util.Log
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -33,6 +34,7 @@ import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
@@ -69,6 +71,7 @@ import coil.transform.CircleCropTransformation
 import com.example.helloworld.nested.navigation.example.nav_graph.setupNavGraph
 import com.example.helloworld.repository.PersonRepository
 import com.example.helloworld.shimmering.effect.example.AnimatedShimmer
+import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
 const val LOREM_IPSUM = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, " +
         "sed do eiusmod tempor incididunt ut labore et dolore magna " +
@@ -502,4 +505,15 @@ fun AnimatedShimmerExample(){
 fun AnimatedSplashScreenExample(){
     val navController = rememberNavController()
     com.example.helloworld.animated.splash.screen.example.setupNavGraph(navController = navController)
+}
+
+@Composable
+fun ChangeSystemBarColorsExample(){
+    val systemUiController = rememberSystemUiController()
+    val darkTheme = isSystemInDarkTheme()
+    SideEffect {
+        systemUiController.setSystemBarsColor(
+            color = if (darkTheme) Color(128, 203, 196) else Color.LightGray
+        )
+    }
 }

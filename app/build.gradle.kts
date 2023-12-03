@@ -78,6 +78,10 @@ dependencies {
     implementation ("androidx.room:room-ktx:2.6.0")
     androidTestImplementation ("androidx.room:room-testing:2.6.0")
 
+    // Accompanist - System UI Controller
+    implementation ("com.google.accompanist:accompanist-systemuicontroller:0.33.2-alpha")
+    implementation("androidx.activity:activity-compose:1.8.0-alpha07")
+
     implementation("javax.inject:javax.inject:1")
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
