@@ -15,3 +15,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "Hello World"
 include(":app")
+include(":paging3jetpackcomposedemo")
