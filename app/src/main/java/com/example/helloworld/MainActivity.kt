@@ -56,7 +56,7 @@ class MainActivity : ComponentActivity() {
 //                    CustomText4()
 //                    TextFieldExample()
 //                    OutlinedTextFieldExample()
-//                    googleButtonAndExpandableCard()
+                    googleButtonAndExpandableCard()
 //                    CoilImage()
 //                    PasswordTextFields()
 //                    GradientButton(text = "Button", textColor = Color.White, gradient = Brush.horizontalGradient(colors = listOf(color1, color2))) {}
@@ -73,7 +73,7 @@ class MainActivity : ComponentActivity() {
 //                    AnimatedShimmerExample()
 //                    CircularImageScreen()
 //                    AnimatedSplashScreenExample()
-                    ChangeSystemBarColorsExample() //If nothing changes is because the same works is called in com.example.helloworld.ui.theme
+//                    ChangeSystemBarColorsExample() //If nothing changes is because the same works is called in com.example.helloworld.ui.theme
 
                 }
             }
