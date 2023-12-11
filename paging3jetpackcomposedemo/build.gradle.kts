@@ -79,6 +79,7 @@ dependencies {
 
     // Room components
     implementation("androidx.room:room-runtime:2.6.1")
+    implementation("androidx.wear.compose:compose-material3:1.0.0-alpha15")
     ksp("androidx.room:room-compiler:2.6.1")
     implementation ("androidx.room:room-ktx:2.6.1")
     implementation("androidx.room:room-paging:2.6.1")

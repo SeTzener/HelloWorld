@@ -12,16 +12,22 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.rememberNavController
+import androidx.paging.ExperimentalPagingApi
+import coil.annotation.ExperimentalCoilApi
+import com.example.paging3jetpackcomposedemo.navigation.SetupNavGraph
 import com.example.paging3jetpackcomposedemo.ui.theme.Paging3DemoTheme
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+    @OptIn(ExperimentalPagingApi::class, ExperimentalCoilApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            Paging3DemoTheme(
-            ) {
+            Paging3DemoTheme {
+                val navController = rememberNavController()
+                SetupNavGraph(navController = navController)
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
