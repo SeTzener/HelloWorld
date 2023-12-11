@@ -35,10 +35,17 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import androidx.core.content.ContextCompat.startActivity
+import androidx.paging.compose.LazyPagingItems
+import androidx.paging.compose.itemContentType
+import androidx.paging.compose.itemKey
+import androidx.wear.compose.material3.ContentAlpha
 import coil.annotation.ExperimentalCoilApi
-import coil.compose.rememberImagePainter
+import coil.compose.rememberAsyncImagePainter
+import coil.request.ImageRequest
 import com.example.paging3jetpackcomposedemo.R
 import com.example.paging3jetpackcomposedemo.model.UnsplashImage
+import com.example.paging3jetpackcomposedemo.ui.theme.HeartRed
+
 
 @ExperimentalCoilApi
 @Composable
@@ -49,31 +56,33 @@ fun ListContent(items: LazyPagingItems<UnsplashImage>) {
         verticalArrangement = Arrangement.spacedBy(12.dp)
     ) {
         items(
-            items = items,
-            key = { unsplashImage ->
-                unsplashImage.id
-            }
+            count = items.itemCount,
+            contentType = items.itemContentType { "contentType" },
+            key = items.itemKey { it.id },
         ) { unsplashImage ->
             unsplashImage?.let { UnsplashItem(unsplashImage = it) }
         }
     }
 }
 
-@OptIn(ExperimentalCoilApi::class)
 @Composable
 fun UnsplashItem(unsplashImage: UnsplashImage) {
-    val painter = rememberImagePainter(data = unsplashImage.urls.regular) {
-        crossfade(durationMillis = 1000)
-        error(R.drawable.ic_placeholder_dark)
-        placeholder(R.drawable.ic_placeholder_dark)
-    }
+    val painter = rememberAsyncImagePainter(
+        model = ImageRequest.Builder(LocalContext.current)
+            .data(unsplashImage.urls.regular)
+            .crossfade(1000)
+            .error(R.drawable.ic_placeholder_dark)
+            .placeholder(R.drawable.ic_placeholder_dark)
+            .build(),
+        contentScale = ContentScale.Crop
+    )
     val context = LocalContext.current
     Box(
         modifier = Modifier
             .clickable {
                 val browserIntent = Intent(
                     Intent.ACTION_VIEW,
-                    Uri.parse("http://unsplash.com/@${unsplashImage.user.userLinks}")
+                    Uri.parse("http://unsplash.com/@${unsplashImage.user.userLinks}?utm_source=Paging3Demo&utm_medium=referral")
                 )
                 startActivity(context, browserIntent, null)
             }
@@ -108,10 +117,10 @@ fun UnsplashItem(unsplashImage: UnsplashImage) {
                     withStyle(style = SpanStyle(fontWeight = FontWeight.Black)) {
                         append(unsplashImage.user.userName)
                     }
-                    append(" on unsplash")
+                    append(" on Unsplash")
                 },
                 color = Color.White,
-                fontSize = MaterialTheme.typography.labelSmall,
+                fontSize = MaterialTheme.typography.labelSmall.fontSize,
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis
             )
