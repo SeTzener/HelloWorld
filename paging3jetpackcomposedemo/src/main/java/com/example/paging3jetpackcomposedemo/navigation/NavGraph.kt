@@ -7,6 +7,7 @@ import androidx.navigation.compose.composable
 import androidx.paging.ExperimentalPagingApi
 import coil.annotation.ExperimentalCoilApi
 import com.example.paging3jetpackcomposedemo.screens.HomeScreen
+import com.example.paging3jetpackcomposedemo.screens.home.HomeScreen
 
 @ExperimentalCoilApi
 @ExperimentalPagingApi
