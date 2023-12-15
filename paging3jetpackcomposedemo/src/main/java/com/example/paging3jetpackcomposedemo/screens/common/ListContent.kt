@@ -33,19 +33,21 @@ import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.text.withStyle
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.core.content.ContextCompat.startActivity
 import androidx.paging.compose.LazyPagingItems
-import androidx.paging.compose.itemContentType
-import androidx.paging.compose.itemKey
 import androidx.wear.compose.material3.ContentAlpha
 import coil.annotation.ExperimentalCoilApi
 import coil.compose.rememberAsyncImagePainter
+import coil.compose.rememberImagePainter
 import coil.request.ImageRequest
 import com.example.paging3jetpackcomposedemo.R
 import com.example.paging3jetpackcomposedemo.model.UnsplashImage
+import com.example.paging3jetpackcomposedemo.model.Urls
+import com.example.paging3jetpackcomposedemo.model.User
+import com.example.paging3jetpackcomposedemo.model.UserLinks
 import com.example.paging3jetpackcomposedemo.ui.theme.HeartRed
-
 
 @ExperimentalCoilApi
 @Composable
@@ -57,10 +59,9 @@ fun ListContent(items: LazyPagingItems<UnsplashImage>) {
     ) {
         items(
             count = items.itemCount,
-            contentType = items.itemContentType { "contentType" },
-            key = items.itemKey { it.id },
-        ) { unsplashImage ->
-            unsplashImage?.let { UnsplashItem(unsplashImage = it) }
+            key = { idx -> items[idx]?.id ?: "" }
+        ) { idx ->
+           items[idx]?.let { UnsplashItem(unsplashImage = it) }
         }
     }
 }
@@ -73,9 +74,8 @@ fun UnsplashItem(unsplashImage: UnsplashImage) {
             .crossfade(1000)
             .error(R.drawable.ic_placeholder_dark)
             .placeholder(R.drawable.ic_placeholder_dark)
-            .build(),
-        contentScale = ContentScale.Crop
     )
+
     val context = LocalContext.current
     Box(
         modifier = Modifier
@@ -122,7 +122,7 @@ fun UnsplashItem(unsplashImage: UnsplashImage) {
                 color = Color.White,
                 fontSize = MaterialTheme.typography.labelSmall.fontSize,
                 maxLines = 1,
-                overflow = TextOverflow.Ellipsis
+                overflow = TextOverflow.Ellipsis,
             )
             LikeCounter(
                 modifier = Modifier.weight(3f),
@@ -140,7 +140,7 @@ fun LikeCounter(modifier: Modifier, painter: Painter, likes: String) {
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.End
     ) {
-        Icon (
+        Icon(
             painter = painter,
             contentDescription = "Heart Icon",
             tint = HeartRed
@@ -155,4 +155,21 @@ fun LikeCounter(modifier: Modifier, painter: Painter, likes: String) {
             overflow = TextOverflow.Ellipsis
         )
     }
+}
+
+
+@Composable
+@Preview(showBackground = true)
+fun UnsplashImagePreview(){
+    UnsplashItem(
+        UnsplashImage(
+            id = "1",
+            urls = Urls(regular = ""),
+            likes = 100,
+            user = User(
+                userName = "Gavizi",
+                userLinks = UserLinks(html = "")
+            )
+        )
+    )
 }
