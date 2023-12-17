@@ -40,7 +40,6 @@ import androidx.paging.compose.LazyPagingItems
 import androidx.wear.compose.material3.ContentAlpha
 import coil.annotation.ExperimentalCoilApi
 import coil.compose.rememberAsyncImagePainter
-import coil.compose.rememberImagePainter
 import coil.request.ImageRequest
 import com.example.paging3jetpackcomposedemo.R
 import com.example.paging3jetpackcomposedemo.model.UnsplashImage
@@ -66,6 +65,7 @@ fun ListContent(items: LazyPagingItems<UnsplashImage>) {
     }
 }
 
+@ExperimentalCoilApi
 @Composable
 fun UnsplashItem(unsplashImage: UnsplashImage) {
     val painter = rememberAsyncImagePainter(
@@ -157,7 +157,7 @@ fun LikeCounter(modifier: Modifier, painter: Painter, likes: String) {
     }
 }
 
-
+@ExperimentalCoilApi
 @Composable
 @Preview(showBackground = true)
 fun UnsplashImagePreview(){

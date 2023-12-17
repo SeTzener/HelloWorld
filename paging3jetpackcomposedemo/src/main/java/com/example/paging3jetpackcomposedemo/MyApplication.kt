@@ -1,8 +1,14 @@
 package com.example.paging3jetpackcomposedemo
 
 import android.app.Application
-import dagger.hilt.android.HiltAndroidApp
+import com.example.paging3jetpackcomposedemo.di.AppComponent
+import javax.inject.Inject
 
-@HiltAndroidApp
+
 class MyApplication: Application() {
+    @Inject lateinit var appComponent: AppComponent
+    override fun onCreate() {
+        super.onCreate()
+        appComponent = DaggerAppComponent.create()
+    }
 }

@@ -8,11 +8,12 @@ import com.example.helloworld.data.PersonDatabase
 import com.example.helloworld.data.PersonDbRepository
 import com.example.helloworld.data.PersonEntity
 import com.example.helloworld.di.DatabaseModule
+import dagger.Component
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
-@HiltViewModel
+@Component
 class MainViewModel(
     application: Application
 ): AndroidViewModel(application) {
