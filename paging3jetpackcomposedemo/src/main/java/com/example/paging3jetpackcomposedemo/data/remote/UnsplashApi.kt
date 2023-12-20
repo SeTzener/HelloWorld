@@ -3,7 +3,6 @@ package com.example.paging3jetpackcomposedemo.data.remote
 import com.example.paging3jetpackcomposedemo.BuildConfig
 import com.example.paging3jetpackcomposedemo.model.UnsplashImage
 import retrofit2.http.GET
-import retrofit2.http.Header
 import retrofit2.http.Headers
 import retrofit2.http.Query
 

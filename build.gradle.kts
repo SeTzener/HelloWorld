@@ -13,6 +13,7 @@ buildscript{
         classpath(kotlin("gradle-plugin", version = "1.9.20"))
         classpath("com.android.tools.build:gradle:8.2.0")
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.21")
+        classpath("com.google.dagger:dagger:2.48")
         classpath("org.jetbrains.kotlin:kotlin-serialization:1.9.20")
     }
     repositories{

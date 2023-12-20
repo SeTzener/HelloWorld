@@ -7,7 +7,6 @@ import dagger.Component
 import javax.inject.Inject
 
 @ExperimentalPagingApi
-@Component
 class HomeViewModel @Inject constructor(
     repository: Repository
 ): ViewModel() {
