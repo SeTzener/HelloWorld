@@ -1,13 +1,13 @@
 package com.example.paging3jetpackcomposedemo.screens.home
 
 import android.annotation.SuppressLint
-import android.app.Application
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.paging.ExperimentalPagingApi
 import androidx.paging.compose.collectAsLazyPagingItems
 import coil.annotation.ExperimentalCoilApi
+import com.example.paging3jetpackcomposedemo.di.AppComponent
 import com.example.paging3jetpackcomposedemo.navigation.Screen
 import com.example.paging3jetpackcomposedemo.screens.common.ListContent
 
@@ -20,8 +20,10 @@ lateinit var homeViewModel: HomeViewModel
 @ExperimentalPagingApi
 @Composable
 fun HomeScreen (
+    component: AppComponent,
     navController: NavHostController
 ) {
+    homeViewModel = component.getViewModel()
 
     val getAllImages = homeViewModel.getAllImages.collectAsLazyPagingItems()
 

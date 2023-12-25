@@ -17,22 +17,24 @@ import com.example.paging3jetpackcomposedemo.ui.theme.Paging3DemoTheme
 
 @ExperimentalPagingApi
 class MainActivity : AppCompatActivity() {
+    private val myApplication get() = application as MyApplication
+    private val component get() = myApplication.appComponent
+
     @OptIn(ExperimentalPagingApi::class, ExperimentalCoilApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        (application as MyApplication).appComponent.inject(this)
-
+        component.inject(this)
 
         setContent {
             Paging3DemoTheme {
                 val navController = rememberNavController()
-                SetupNavGraph(navController = navController)
+                SetupNavGraph(component = component, navController = navController)
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    SetupNavGraph(navController = navController)
+                    SetupNavGraph(component = component, navController = navController)
                 }
             }
         }
