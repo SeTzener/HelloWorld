@@ -7,7 +7,7 @@ import androidx.navigation.NavHostController
 import androidx.paging.ExperimentalPagingApi
 import androidx.paging.compose.collectAsLazyPagingItems
 import coil.annotation.ExperimentalCoilApi
-import com.example.paging3jetpackcomposedemo.di.AppComponent
+import com.example.paging3jetpackcomposedemo.LocalAppComponent
 import com.example.paging3jetpackcomposedemo.navigation.Screen
 import com.example.paging3jetpackcomposedemo.screens.common.ListContent
 
@@ -19,11 +19,8 @@ lateinit var homeViewModel: HomeViewModel
 @ExperimentalCoilApi
 @ExperimentalPagingApi
 @Composable
-fun HomeScreen (
-    component: AppComponent,
-    navController: NavHostController
-) {
-    homeViewModel = component.getViewModel()
+fun HomeScreen (navController: NavHostController) {
+    homeViewModel = LocalAppComponent.current.getViewModel()
 
     val getAllImages = homeViewModel.getAllImages.collectAsLazyPagingItems()
 
